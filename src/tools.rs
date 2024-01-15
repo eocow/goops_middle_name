@@ -3,7 +3,7 @@ use std::fs::{read_to_string, OpenOptions};
 use std::io::{self, Write};
 
 // read in from the names text file
-pub fn read_in_names(filepath: &str) -> Result<Vec<String>, io::Error> {
+pub fn read_in_names(filepath: &String) -> Result<Vec<String>, io::Error> {
     let mut names: Vec<String> = Vec::new();
 
     for line in read_to_string(filepath).unwrap().lines() {
@@ -14,7 +14,7 @@ pub fn read_in_names(filepath: &str) -> Result<Vec<String>, io::Error> {
 }
 
 // adding a name to the text file
-pub fn add_name(name: &String, filepath: &str) -> io::Result<()> {
+pub fn add_name(name: &String, filepath: &String) -> io::Result<()> {
     let mut file = OpenOptions::new().append(true).open(filepath)?;
 
     writeln!(file, "{}", name)?;

@@ -1,4 +1,6 @@
 echo "This will build then move the executable to the /usr/bin so it will need a sudo password"
 cargo build --release
-sudo mv target/release/goop /usr/bin
+sudo ln -s $PWD/target/release/goop /usr/bin/
+mkdir ~/.config/goop
+cp names ~/.config/goop/
 echo "Done!"
